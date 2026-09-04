@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.fud-ai.app/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.fud-ai.app/assets/opengraph.jpg</image:loc>
+      <image:title>Fud AI app preview</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.fud-ai.app/assets/screenshots/home.png</image:loc>
+      <image:title>Fud AI calorie tracker home dashboard</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.fud-ai.app/privacy.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.fud-ai.app/terms.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
