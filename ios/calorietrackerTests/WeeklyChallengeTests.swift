@@ -3,6 +3,7 @@ import Testing
 @testable import calorietracker
 
 @Suite("Weekly Challenge")
+@MainActor
 struct WeeklyChallengeTests {
     private var utcCalendar: Calendar {
         var calendar = Calendar(identifier: .gregorian)

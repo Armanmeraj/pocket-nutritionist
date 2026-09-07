@@ -34,6 +34,8 @@ struct OnDeviceAIService {
             "Enable Apple Intelligence in iPhone Settings"
         case .unavailable(.modelNotReady):
             "The on-device model is still downloading"
+        case .unavailable(_):
+            "Apple Intelligence is currently unavailable"
         }
     }
 

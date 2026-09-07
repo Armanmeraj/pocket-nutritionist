@@ -259,7 +259,7 @@ struct FreeExerciseDBAssetResolver {
         return records
     }()
 
-    private static func imageURL(for relativePath: String) -> URL? {
+    private nonisolated static func imageURL(for relativePath: String) -> URL? {
         let cleanPath = relativePath.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
         let path = cleanPath as NSString
         let filename = path.deletingPathExtension
@@ -290,7 +290,7 @@ struct FreeExerciseDBAssetResolver {
         return nil
     }
 
-    private static func firstExistingURL(candidates: [URL?]) -> URL? {
+    private nonisolated static func firstExistingURL(candidates: [URL?]) -> URL? {
         candidates.compactMap { $0 }.first { FileManager.default.fileExists(atPath: $0.path) }
     }
 

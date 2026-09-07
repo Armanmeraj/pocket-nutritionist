@@ -2,6 +2,7 @@ import Testing
 import Foundation
 @testable import calorietracker
 
+@MainActor
 struct ServingUnitFallbackTests {
     @Test func missingServingWeightRemainsUnknownInsteadOfBecomingOneHundredGrams() throws {
         let analysis = try GeminiService.parseFoodAnalysis(

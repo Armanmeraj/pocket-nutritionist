@@ -11,7 +11,7 @@
   "scripts": {
     "build": "npm run build:server && npm run build --workspace @fud-ai/web-app",
     "build:server": "npm run build --workspace @fud-ai/sync-contracts && npm run build --workspace @fud-ai/server-core && npm run build --workspace @fud-ai/adapter-postgres && npm run build --workspace @fud-ai/server-node",
-    "check": "npm run check --workspaces --if-present && npm run check:vercel",
+    "check": "npm run build:server && npm run check --workspaces --if-present && npm run check:vercel",
     "check:vercel": "tsc -p tsconfig.vercel.json",
     "test": "npm run test --workspaces --if-present && npm run test:vercel",
     "test:vercel": "tsx --test deploy/vercel/*.test.ts",

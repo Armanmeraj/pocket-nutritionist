@@ -2,6 +2,7 @@ import Foundation
 import Testing
 @testable import calorietracker
 
+@MainActor
 struct FoodServingRestoreTests {
     @Test func unknownServingUsesOneServingWithoutInventingGrams() {
         let entry = FoodEntry(

@@ -3,6 +3,7 @@ package com.apoorvdarshan.calorietracker.models
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import java.util.Locale
+import kotlin.math.roundToLong
 
 @Serializable
 enum class NutritionDataSource(val badgeText: String) {

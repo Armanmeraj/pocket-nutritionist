@@ -3,6 +3,7 @@ import Testing
 @testable import calorietracker
 
 @Suite("Nutrition lookup")
+@MainActor
 struct NutritionLookupServiceTests {
     @Test func structuredFoodItemsParseFromAIResponse() throws {
         let analysis = try GeminiService.parseFoodAnalysis(from: """
@@ -307,7 +308,7 @@ struct NutritionLookupServiceTests {
         servingQuantity: Double? = 100,
         servingUnit: String? = "g",
         servingWeightGrams: Double? = 100,
-        facts: NutritionFacts = NutritionFacts(calories: 130, protein: 2.7, carbs: 28, fat: 0.3),
+        facts: NutritionFacts? = nil,
         dataType: String? = nil,
         matchScore: Double = 0
     ) -> NutritionCandidate {
@@ -321,7 +322,7 @@ struct NutritionLookupServiceTests {
             servingUnit: servingUnit,
             servingWeightGrams: servingWeightGrams,
             householdServingDescription: nil,
-            facts: facts,
+            facts: facts ?? NutritionFacts(calories: 130, protein: 2.7, carbs: 28, fat: 0.3),
             dataType: dataType,
             matchScore: matchScore
         )

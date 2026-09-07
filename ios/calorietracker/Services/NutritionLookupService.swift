@@ -400,8 +400,7 @@ struct NutritionLookupCoordinator: Sendable {
         return .resolved(GeminiService.FoodAnalysis.combined(
             name: fallback.name,
             emoji: fallback.emoji,
-            analyses: ingredientAnalyses,
-            fallbackNote: fallback.customNote
+            analyses: ingredientAnalyses
         ))
     }
 
@@ -1323,8 +1322,7 @@ extension GeminiService.FoodAnalysis {
     static func combined(
         name: String,
         emoji: String?,
-        analyses: [GeminiService.FoodAnalysis],
-        fallbackNote: String?
+        analyses: [GeminiService.FoodAnalysis]
     ) -> GeminiService.FoodAnalysis {
         let totalSources = Set(analyses.map(\.nutritionDataSource))
         return GeminiService.FoodAnalysis(
@@ -1362,7 +1360,6 @@ extension GeminiService.FoodAnalysis {
             vitaminK: sum(analyses.map(\.vitaminK)),
             folate: sum(analyses.map(\.folate)),
             omega3: sum(analyses.map(\.omega3)),
-            customNote: fallbackNote,
             progressiveMeal: false,
             ingredients: analyses.map { analysis in
                 MealIngredient(

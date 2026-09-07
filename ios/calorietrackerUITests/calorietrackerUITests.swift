@@ -9,6 +9,12 @@ import XCTest
 
 final class calorietrackerUITests: XCTestCase {
 
+    private func makeApp() -> XCUIApplication {
+        let app = XCUIApplication()
+        app.launchArguments += ["-hasCompletedOnboarding", "YES"]
+        return app
+    }
+
     private func openSettingsCategory(_ identifier: String, in app: XCUIApplication) {
         let settings = app.tabBars.buttons["Settings"]
         XCTAssertTrue(settings.waitForExistence(timeout: 8))
@@ -38,7 +44,7 @@ final class calorietrackerUITests: XCTestCase {
     @MainActor
     func testExample() throws {
         // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+        let app = makeApp()
         app.launch()
 
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -46,7 +52,7 @@ final class calorietrackerUITests: XCTestCase {
 
     @MainActor
     func testBarbellFullSquatV2IllustrationRenders() throws {
-        let app = XCUIApplication()
+        let app = makeApp()
         app.launchArguments += [
             "-AppleLanguages", "(en)",
             "-fudai.workouts.tab.mode.v2", "library",
@@ -81,7 +87,7 @@ final class calorietrackerUITests: XCTestCase {
 
     @MainActor
     func testSpeechProviderPickerOpensInFocusedCategory() throws {
-        let app = XCUIApplication()
+        let app = makeApp()
         app.launchArguments += [
             "-AppleLanguages", "(en)",
             "-selectedSpeechProvider", "Native iOS (On-Device)",
@@ -107,7 +113,7 @@ final class calorietrackerUITests: XCTestCase {
 
     @MainActor
     func testSettingsHubShowsSixFocusedAppInfoCategories() throws {
-        let app = XCUIApplication()
+        let app = makeApp()
         app.launchArguments += ["-AppleLanguages", "(en)"]
         app.launch()
 
@@ -170,7 +176,7 @@ final class calorietrackerUITests: XCTestCase {
 
     @MainActor
     func testSeparateTextProviderSettingsAreVisibleAndIndependent() throws {
-        let app = XCUIApplication()
+        let app = makeApp()
         app.launchArguments += [
             "-AppleLanguages", "(en)",
             "-separateTextProviderEnabled", "YES",
@@ -194,7 +200,7 @@ final class calorietrackerUITests: XCTestCase {
 
     @MainActor
     func testAppleIntelligenceAppearsAsTextProvider() throws {
-        let app = XCUIApplication()
+        let app = makeApp()
         app.launchArguments += [
             "-AppleLanguages", "(en)",
             "-separateTextProviderEnabled", "YES",
@@ -220,7 +226,7 @@ final class calorietrackerUITests: XCTestCase {
 
     @MainActor
     func testWaterTrackingUsesFixedFourthHomePillar() throws {
-        let app = XCUIApplication()
+        let app = makeApp()
         app.launchArguments += [
             "-AppleLanguages", "(en)",
             "-waterTrackingEnabled", "YES",
@@ -246,7 +252,7 @@ final class calorietrackerUITests: XCTestCase {
 
     @MainActor
     func testWaterLogAppearsInDiaryAndCanBeDeleted() throws {
-        let app = XCUIApplication()
+        let app = makeApp()
         app.launchArguments += [
             "-AppleLanguages", "(en)",
             "-waterTrackingEnabled", "YES",
@@ -277,10 +283,9 @@ final class calorietrackerUITests: XCTestCase {
 
     @MainActor
     func testProgressPulseSelectorOpensHeartRateAndManualLog() throws {
-        let app = XCUIApplication()
+        let app = makeApp()
         app.launchArguments += [
             "-AppleLanguages", "(en)",
-            "-hasCompletedOnboarding", "YES",
             "--ui-test-reset-heart-rate",
         ]
         app.launch()
@@ -342,7 +347,7 @@ final class calorietrackerUITests: XCTestCase {
     func testLaunchPerformance() throws {
         // This measures how long it takes to launch your application.
         measure(metrics: [XCTApplicationLaunchMetric()]) {
-            XCUIApplication().launch()
+            makeApp().launch()
         }
     }
 }

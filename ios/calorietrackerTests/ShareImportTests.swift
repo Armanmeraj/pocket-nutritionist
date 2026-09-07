@@ -3,6 +3,7 @@ import Foundation
 import UIKit
 @testable import calorietracker
 
+@MainActor
 struct ShareImportTests {
     
     @Test func testShareImportFlow() async throws {
